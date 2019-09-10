@@ -12,15 +12,15 @@ export class LibraryService {
     return this.httpclient.post(url,user);
   }
   public authenticate(user){
-    let url ='http://localhost:8090/user/login';
+    let url ='https://maverick9020.herokuapp.com/user/login';
     return this.httpclient.post(url,user);
   }
   public getAuthors(){
-    let url = 'http://localhost:8090/authors';
+    let url = 'https://maverick9020.herokuapp.com/authors';
     return this.httpclient.get(url);
   }
   public getBooks(){
-    let url = 'http://localhost:8090/books';
+    let url = 'https://maverick9020.herokuapp.com/books';
     return this.httpclient.get(url);
   }
 }
