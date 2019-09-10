@@ -1,0 +1,37 @@
+<div class="panel">
+    <div class="panel-body">             
+        <form #bform="ngForm" enctype="multipart/form-data" (ngSubmit)="onSubmit()">            
+            <div class="form-group" [class.has-error]="(bid.invalid && bid.touched)">
+                <label for="bid">Enter book ID:</label>
+                <input type="input" [readonly]='editmode' class="form-control is-invalid" [(ngModel)]="book.bid" 
+                    #bid="ngModel" name="bid" id="bid" placeholder="ID" required>
+                <small class="text-danger" [class.hidden]="(bid.untouched || bid.valid)">ID is mandatory</small>    
+            </div> 
+            <div class="form-group" [class.has-error]="(bname.invalid && bname.touched)">
+                <label for="bname">Enter title:</label>
+                <input type="input" class="form-control" [(ngModel)]="book.btitle"
+                #bname="ngModel" name="bname" id="bname" placeholder="Title" required>
+                <small class="text-danger" [ngClass]="{ 'hidden': bname.untouched || bname.valid}" >Title is mandatory</small>
+            </div>               
+            <div class="form-group" [class.has-error]="(bauthor.invalid && bauthor.touched)">
+                <label for="bauthor">Enter the author:</label>
+                <input type="input" class="form-control" [(ngModel)]="book.bauthor"
+                #bauthor="ngModel" name="bauthor" id="bauthor" placeholder="Author" required>
+                 <small class="text-danger" [ngClass]="{ 'hidden': bauthor.untouched || bauthor.valid}" >Author is mandatory</small>
+            </div>
+            <div class="form-group">
+                <label for="bcategory">Enter the category:</label>
+                <input type="input" class="form-control" [(ngModel)]="book.bcategory" name="bcategory" id="bcategory" placeholder="Category" required> 
+            </div>
+            <div class="form-group" *ngIf='editmode'>
+                <label for="uimage">Image:</label>
+                <a href="http://localhost:8090/view/{{book.bimage}}">{{book.bimage}}</a>                
+            </div>
+            <div class="form-group">
+                <label for="bimage">Upload the image:</label>
+                <input type="file" accept="image/*" class="form-control" name="bimage" (change)='onFileChange($event)' placeholder="Image">                                   
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="bform.form.invalid" name="add">{{addOrUpdate}}</button>
+      </form>
+    </div>
+</div>

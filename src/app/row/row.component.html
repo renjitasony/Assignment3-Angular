@@ -1,0 +1,21 @@
+<div class="row">    
+        <br>
+        <div class="col-md-2 col-sm-3 text-center">
+          <a class="story-title" href="#"><img alt="" src="http://localhost:8090/view/{{book.bkimage}}" style="width:100px;height:100px" class="img-circle"></a>
+        </div>
+        <div class="col-md-10 col-sm-9">
+          <h3>{{book.bktitle}}</h3>
+          <div class="row">
+            <div class="col-xs-8">
+              <h4><span class="label label-default">{{book.bkauthor}}</span></h4><h4>
+              <small style="font-family:courier,'new courier';" class="text-muted">{{book.bkcategory}} • <a [routerLink]="['/home/book/',book.bkid]" class="text-muted">Read More</a></small>
+              </h4></div>
+            <div class="col-xs-4">
+                <a [routerLink]="['/home/bookform/',book.bkid]" class="btn btn-success btnNext" style="margin-right: 10px;">Edit<i class="glyphicon glyphicon-chevron-right"></i></a>
+              <a (click)="delete(book.bkid);" class="btn btn-danger btnNext">Delete</a>
+            </div>
+          </div>
+          <br><br>
+        </div>
+      </div>
+      <hr>

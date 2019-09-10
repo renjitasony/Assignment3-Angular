@@ -1,0 +1,12 @@
+<div class="panel">
+    <div class="panel-body">               
+            <!--/stories-->
+            <ng-container *ngIf='type == "bk"'>
+                    <app-row *ngFor='let book of list;' [book]='book'></app-row>
+            </ng-container>
+            <ng-container *ngIf='type == "auth"'>
+                    <app-authrow *ngFor='let author of list;' [author]='author'></app-authrow>
+            </ng-container>
+            <!--/stories-->              
+    </div>
+</div>
